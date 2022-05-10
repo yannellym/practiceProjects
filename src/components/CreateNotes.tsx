@@ -5,13 +5,20 @@ interface ICreateNotesProps {
 }
 
 const CreateNotes: React.FunctionComponent<ICreateNotesProps> = (props) => {
-    const titleRef = useRef();
-    const textRef = useRef();
-    const colorRef = useRef();
+    const titleRef = React.useRef<HTMLInputElement | null>(null);
+    const textRef = React.useRef<HTMLTextAreaElement | null>(null);
+    const colorRef = React.useRef<HTMLInputElement | null>(null);
+    const [error, setError] = React.useState<string>("")
+    const handleSubmit = (e:React.FormEvent<HTMLFormElement>): void => {
+        e.preventDefault();
+        if(titleRef.current?.value === "" || textRef.current?.value === ""){
+            return setError("Please fill out all fields")
+        }
+    }
   return (
       <>
         <h2>Create notes</h2>
-        <Form className="mt-3 mb-3">
+        <Form className="mt-3 mb-3" onSubmit={(e) => handleSubmit(e) }>
             <Form.Group className="mb-3" controlId="formBasicTitle">
                 <Form.Label>Title</Form.Label>
                 <Form.Control type="text" placeholder="Enter the title" ref={titleRef} />
@@ -22,7 +29,7 @@ const CreateNotes: React.FunctionComponent<ICreateNotesProps> = (props) => {
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label htmlFor="colorInput">Pick a color</Form.Label>
-                <Form.Control  type="color" id="colorInput" defaultValue="#dfdfdf" title="choose color" ref={colorRef}/>
+                <Form.Control  type="color" id="colorInput" defaultValue="#FF0000" title="choose color" ref={colorRef}/>
             </Form.Group>
             <Button type="submit" variant="primary">submit</Button>
         </Form>
