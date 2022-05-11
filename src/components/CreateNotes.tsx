@@ -30,9 +30,8 @@ const CreateNotes: React.FunctionComponent<ICreateNotesProps> = ({ notes, setNot
     }
   return (
       <>
-        <h2>Create notes</h2>
-        {error && <Alert variant="danger">{error}</Alert>} 
-        <Form className="mt-3 mb-3" onSubmit={(e) => handleSubmit(e) }>
+        <h2>Create a Note ✏️ </h2>
+        <Form className="mt-3 mb-3 note-form" onSubmit={(e) => handleSubmit(e) }>
             <Form.Group className="mb-3" controlId="formBasicTitle">
                 <Form.Label>Title</Form.Label>
                 <Form.Control type="text" placeholder="Enter the title" ref={titleRef} />
@@ -42,9 +41,10 @@ const CreateNotes: React.FunctionComponent<ICreateNotesProps> = ({ notes, setNot
                 <Form.Control  as="textarea" placeholder="Enter note" rows={4} ref={textRef}></Form.Control>
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label htmlFor="colorInput">Pick a color</Form.Label>
-                <Form.Control  type="color" id="colorInput" defaultValue="#FF0000" title="choose color" ref={colorRef}/>
+                <Form.Label htmlFor="colorInput">Color Category:</Form.Label>
+                <Form.Control  type="color" id="colorInput" defaultValue="#FFCE1F" title="choose color" ref={colorRef}/>
             </Form.Group>
+            {error && <Alert variant="danger">{error}</Alert>} 
             <Button type="submit" variant="primary">submit</Button>
         </Form>
       </>

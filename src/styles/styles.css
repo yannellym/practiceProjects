@@ -1,0 +1,18 @@
+.logo{
+    color: rgb(247, 247, 247);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.note-title{
+    padding-top: 5%;
+}
+.note-form{
+    width: 80%;
+}
+.home-div{
+    display: flex;
+    width: 90%;
+    margin: 10% auto;
+}
+.create-note, .rendered-note{
+    width:50%;
+}

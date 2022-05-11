@@ -22,7 +22,7 @@ const NotesList: React.FC<INotesListProps> = ({ notes, setNotes}) => {
 
   return (
       <>
-        <h2 className="mt-3">Notes</h2>
+        <h2 className="mt-3 note-title"> Check out your notes below 👇 : </h2>
         <div> { renderNotes() }</div>
       </>
   )

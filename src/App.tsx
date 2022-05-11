@@ -10,8 +10,8 @@ function App() {
   const [notes, setNotes] = useState<Note[]>([{
     id: (new Date()).toString(),
     title: "Groceries",
-    text: "Pick up groceries after work",
-    color: "#dfdfdf",
+    text: "Remember to pick up groceries for dinner tonight. 5 carrots, 3 tomatoes, and a jar of pesto sauce!",
+    color: "#FFECA8",
     date: (new Date()).toString()
     }]
   );
@@ -19,18 +19,14 @@ function App() {
   return (
     <>
       <Header />
-      <Container className="mt-5">
-        <Row>
-          <Col>
-            <NotesList  notes={notes} setNotes={setNotes} />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <CreateNotes notes={notes} setNotes={setNotes} />
-          </Col>
-        </Row>
-      </Container>
+      <div className="home-div">
+        <div className="create-note">
+          <CreateNotes notes={notes} setNotes={setNotes} />
+        </div>
+        <div className="rendered-note">
+          <NotesList  notes={notes} setNotes={setNotes} />
+        </div>
+      </div>
     </>
   );
 }
